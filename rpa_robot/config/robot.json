@@ -1,19 +1,20 @@
 {
     "AMQP-SETTING":{
-        "user":             "admin",
-        "password":         "rpa123",
-        "host":             "10.208.99.12",
+        "user":             "guest",
+        "password":         "guest",
+        "host":             "127.0.0.1",
         "port":             "5672",
-        "subscriptions":    ["rpa.robot.robotremote1","rpa.robot.general"],
+        "subscriptions":    ["rpa.robot.robot1","rpa.robot.general"],
         "exchange_name":    "rpa",
-        "queue_name":       "robotremote1"
+        "queue_name":       "robot1"
     },
 
     "ROBOT-SETTING":{
-        "id":         "robotremote1",
-        "name":       "RobotRemote1",
+        "id":               "robot1",
+        "name":             "RobotUMU",
         "address":          "Espinardo",
-        "registrations":    "UMU"
+        "registrations":    "Pleiades"
+
     }
 
 

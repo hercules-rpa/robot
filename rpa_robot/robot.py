@@ -1,12 +1,13 @@
-from datetime                           import datetime
-from threading                          import Thread
-from controller.ControllerAMQP          import ControllerAMQP as controller
-from model.interfaces.ListenerMsg       import ListenerMsg
-from model.interfaces.ListenerLog       import ListenerLog
-from model.interfaces.ListenerProcess   import ListenerProcess
-from customjson.JSONEncoder             import JSONEncoder
-from getmac                             import get_mac_address as gma
-import model.messages   as messages
+from datetime import datetime
+from threading import Thread
+from controller.ControllerAMQP import ControllerAMQP as controller
+from rpa_robot.ExecProcess import ExecProcess
+from model.interfaces.ListenerMsg import ListenerMsg
+from model.interfaces.ListenerLog import ListenerLog
+from model.interfaces.ListenerProcess import ListenerProcess
+from customjson.JSONEncoder import JSONEncoder
+from getmac import get_mac_address as gma
+import model.messages as messages
 import importlib
 import asyncio
 import sys
@@ -30,7 +31,8 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
         self.address = str(address)
         self.registrations = str(registrations)
         self.ip_address = None
-        self.mac = gma() #"".join(c + ":" if i % 2 else c for i,c in enumerate(hex(get_mac())[2:].zfill(12)))[:-1]
+        # "".join(c + ":" if i % 2 else c for i,c in enumerate(hex(get_mac())[2:].zfill(12)))[:-1]
+        self.mac = gma()
         self.python_version = sys.version
         self.online = online
         self.connected = connected
@@ -43,12 +45,14 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
         # Procesos pendientes, cuando se vaya a ejecutar uno lo quitamos de esta lista y lo pasamos a process_running
         self.process_list = process_list
         self.process_pause = []
-        
+
     def __instance_process(self, process_dict):
-        #hacer algo en este caso para hacerlo robusto, enviar error proceso al orquestador. COMPROBAR SI EL ORQUESTADOR CONOCE ESE PROCESO, Y SI SE VERIFICA PEDIR QUE ACTUALICE EL REPOSITORIO AL ROBOT
-        module =  importlib.import_module(messages.ROUTE_MODULE_PROCESS+process_dict['classname'])
+        # hacer algo en este caso para hacerlo robusto, enviar error proceso al orquestador. COMPROBAR SI EL ORQUESTADOR CONOCE ESE PROCESO, Y SI SE VERIFICA PEDIR QUE ACTUALICE EL REPOSITORIO AL ROBOT
+        module = importlib.import_module(
+            messages.ROUTE_MODULE_PROCESS+process_dict['classname'])
         class_ = getattr(module, process_dict['classname'])
-        instance = class_(process_dict['id_schedule'], process_dict['id_log'], process_dict['id_robot'], process_dict['priority'], process_dict['log_file'], process_dict['parameters'])
+        instance = class_(process_dict['id_schedule'], process_dict['id_log'], process_dict['id_robot'],
+                          process_dict['priority'], process_dict['log_file'], process_dict['parameters'])
         return instance
 
     def __execute_process(self, process):
@@ -58,7 +62,11 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
         asyncio.run((self.__send_message(messages.ROUTE_ORCHESTRATOR, json.dumps(dict(
             messages.MSG_EXEC_PROCESS, **({"ROBOT": json.loads(JSONEncoder().encode(self))}))))))
         process.add_log_listener(self)
-        p = Thread(target=process.execute)
+
+        # p = Thread(target=process.execute)
+        # p.start()
+        execProcess = ExecProcess(process=process, listener=self)
+        p = Thread(target=execProcess.exec)
         p.start()
 
     def __resume_process(self, process):
@@ -140,7 +148,7 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
     async def notify_msg(self, msg):
         print("llega: ", msg)
         await self.handle_msg(msg)
-    
+
     async def handle_msg(self, msg):
         msg = json.loads(msg)
         type_msg = msg['TYPE_MSG']
@@ -160,7 +168,7 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
             await self.handle_msgResumeRobot(msg)
         elif(type_msg == messages.UPDATE_INFO):
             await self.handle_msgUpdateInfo(msg)
-    
+
     async def handle_msgInit(self, msg):
         print("Conexion establecida")
         global time_keep
@@ -171,12 +179,11 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
         print("Orquestador conectado")
         await self.__send_message(messages.ROUTE_ORCHESTRATOR, json.dumps(dict(messages.MSG_KEEP_ALIVE, **({"ROBOT": json.loads(JSONEncoder().encode(self))}))))
 
-
     async def handle_msgReqExecProcess(self, msg):
-        process      = msg['PROCESS']
+        process = msg['PROCESS']
         process_instance = self.__instance_process(process)
         print("El robot almacena el proceso: ", process_instance.name,
-                  ' en la cola, tiene prioridad: ', process_instance.priority)
+              ' en la cola, tiene prioridad: ', process_instance.priority)
         self.process_list.append(process_instance)
         self.process_list.sort(key=self.__sort_by_priority)
         await self.__send_message(messages.ROUTE_ORCHESTRATOR, json.dumps(dict(messages.MSG_PENDING_PROCESS, **({"ROBOT": json.loads(JSONEncoder().encode(self))}))))
@@ -186,16 +193,16 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
 
     async def handle_msgPause(self, msg):
         self.pause()
-    
+
     async def handle_msgResumeRobot(self, msg):
         self.resume()
-    
+
     async def handle_msgKillProcess(self, msg):
         id_schedule = msg['SCHEDULE']
         self.__remove_process(id_schedule)
         self.__kill_process(id_schedule)
         await self.__send_message(messages.ROUTE_ORCHESTRATOR, json.dumps(dict(messages.MSG_UPDATE_INFO, **({"ROBOT": json.loads(JSONEncoder().encode(self))}))))
-    
+
     async def handle_msgRemoveProcess(self, msg):
         id_schedule = msg['SCHEDULE']
         process = self.__remove_process(id_schedule)
@@ -205,7 +212,7 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
         else:
             print("Se ha intentado eliminar un proceso que no existe")
             await self.__send_message(messages.ROUTE_ORCHESTRATOR, json.dumps(dict(messages.MSG_UPDATE_INFO, **({"ROBOT": json.loads(JSONEncoder().encode(self))}))))
-       
+
     def run(self):
         play = True
         global time_keep
