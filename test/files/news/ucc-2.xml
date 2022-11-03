@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>Publicador de contenidos</title>
+  <link rel="alternate" href="https://www.um.es/web/ucc/inicio"/>
+  <link rel="self" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/rss"/>
+  <subtitle>Publicador de contenidos</subtitle>
+  <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/rss</id>
+  <updated>2022-05-10T10:37:23Z</updated>
+  <dc:date>2022-05-10T10:37:23Z</dc:date>
+  <entry>
+    <title>Una investigación de la UMU genera embriones porcinos editados genéticamente para hallar nuevas terapias en humanos</title>
+    <link rel="alternate" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/30991266"/>
+    <author>
+      <name>DELFINA</name>
+    </author>
+    <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/30991266</id>
+    <updated>2022-05-09T11:39:23Z</updated>
+    <published>2022-05-06T09:57:00Z</published>
+    <summary type="html">&lt;p&gt;En la actualidad existe una amplia variedad de tratamientos para subsanar las patologías que nos afectan en mayor o menor medida al conjunto de la sociedad. Sin embargo, un reducido porcentaje, como en el caso de las denominadas ‘enfermedades raras’, aún permanece sin tratamientos efectivos que permitan, como mínimo, una mejor calidad de vida para los pacientes.&lt;/p&gt;</summary>
+    <dc:creator>DELFINA</dc:creator>
+    <dc:date>2022-05-06T09:57:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>La UMU estudia la transmisión de patógenos entre los polinizadores</title>
+    <link rel="alternate" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/30970159"/>
+    <author>
+      <name>DELFINA</name>
+    </author>
+    <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/30970159</id>
+    <updated>2022-05-06T07:09:16Z</updated>
+    <published>2022-05-05T12:01:00Z</published>
+    <summary type="html">&lt;p&gt;Un proyecto de investigación realizado en la UMU sobre la transmisión del patógeno Nosema ceranae entre las comunidades de abejas del sureste, evidencia la capacidad de transmisión de este hongo entre las especies de abejas manejadas y silvestres.&amp;nbsp;&lt;/p&gt;</summary>
+    <dc:creator>DELFINA</dc:creator>
+    <dc:date>2022-05-05T12:01:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Seis equipos se alzan con el premio del concurso Math_talentUM</title>
+    <link rel="alternate" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/30941985"/>
+    <author>
+      <name>PAULA</name>
+    </author>
+    <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/30941985</id>
+    <updated>2022-05-04T10:15:51Z</updated>
+    <published>2022-05-04T10:06:00Z</published>
+    <summary type="html">&lt;p&gt;La Facultad de Matemáticas acogió el pasado 29 de abril la final de la III Edición del concurso Math_talentUM, que reunió a 64 alumnos de diferentes centros educativos de la Región de Murcia. Tras la evaluación final, dos equipos de cada categoría se proclaman ganadores de este certamen matemático de la UMU.&lt;/p&gt;</summary>
+    <dc:creator>PAULA</dc:creator>
+    <dc:date>2022-05-04T10:06:00Z</dc:date>
+  </entry>
+</feed>

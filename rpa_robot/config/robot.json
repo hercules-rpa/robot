@@ -13,8 +13,10 @@
         "id":               "robot1",
         "name":             "RobotUMU",
         "address":          "Espinardo",
-        "registrations":    "Pleiades"
-
+        "registrations":    "Pleiades",
+        "ip_api": "10.208.99.12",
+        "port_api":        "5000",
+        "frontend":              "http://rpa.hercules.com"
     }
 
 

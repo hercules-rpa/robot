@@ -1,0 +1,55 @@
+[
+    {
+        "createdBy": "00391433",
+        "creationDate": "2022-09-14T07:57:28.458Z",
+        "lastModifiedBy": "00391433",
+        "lastModifiedDate": "2022-09-14T07:57:28.458Z",
+        "id": 95,
+        "unidadGestionRef": "3",
+        "modeloEjecucion": {
+            "createdBy": null,
+            "creationDate": null,
+            "lastModifiedBy": null,
+            "lastModifiedDate": null,
+            "id": 1,
+            "nombre": "Subvención",
+            "descripcion": "Subvención",
+            "activo": true,
+            "externo": false,
+            "contrato": false
+        },
+        "codigo": null,
+        "fechaPublicacion": null,
+        "fechaProvisional": null,
+        "fechaConcesion": null,
+        "titulo": "preuba",
+        "objeto": "",
+        "observaciones": "",
+        "finalidad": {
+            "createdBy": null,
+            "creationDate": null,
+            "lastModifiedBy": null,
+            "lastModifiedDate": null,
+            "id": 20,
+            "nombre": "Proyectos (ayudas a la investigación)",
+            "descripcion": "Proyectos (ayudas a la investigación)",
+            "activo": true
+        },
+        "regimenConcurrencia": null,
+        "estado": "BORRADOR",
+        "duracion": null,
+        "ambitoGeografico": {
+            "createdBy": null,
+            "creationDate": null,
+            "lastModifiedBy": null,
+            "lastModifiedDate": null,
+            "activo": true,
+            "id": 4,
+            "nombre": "Estatal"
+        },
+        "clasificacionCVN": null,
+        "activo": true,
+        "excelencia": null,
+        "formularioSolicitud": "PROYECTO"
+    }
+]

@@ -4,13 +4,7 @@ from model.process.ProcessSendMail import ProcessSendMail
 from model.process.ProcessCommand import ProcessCommand
 from model.process.ProcessCommand import Pstatus as pstatus
 from model.process.ProcessCommand import ProcessID
-import asyncio
 import json
-
-
-
-import Utils as Utils
-from model.Log import Log
 import time
 
 NAME            = "Compose Proc"
@@ -27,8 +21,6 @@ class ProcessComposeTest(ProcessCommand,ListenerLogData):
         self.state = pstatus.RUNNING
         start = time.time()
         self.log.start_log(start)
-
-
 
         print("Soy el proceso padre e imprimo hola para debugging")
         self.update_log("El proceso padre ha imprimido hola para debugging",True)

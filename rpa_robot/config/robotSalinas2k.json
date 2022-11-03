@@ -13,7 +13,10 @@
         "id":         "robotConvocatorias",
         "name":       "PC",
         "address":          "Pleiades",
-        "registrations":    "UMU"
+        "registrations":    "UMU",
+        "ip_api": "10.208.99.12",
+        "port_api":        "5000",
+        "frontend":        "http://rpa.hercules.com"
     }
 
 

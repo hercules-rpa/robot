@@ -1,9 +1,5 @@
 import asyncio
-import uuid
-from threading import Thread
 from aio_pika import ExchangeType, connect_robust, Message, DeliveryMode, IncomingMessage, exceptions
-import sys, os
-from multiprocessing import Process
 
 class Singleton(type):
     _instances = {}
@@ -17,7 +13,7 @@ class ControllerAMQP(metaclass=Singleton):
         self.user           = user
         self.password       = password
         self.host           = host
-        self.port           = port
+        self.port           = str(port)
         self.subscriptions  = subscriptions
         self.exchange_name  = exchange_name
         self.queue_name     = queue_name

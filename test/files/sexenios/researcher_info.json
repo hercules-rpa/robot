@@ -1,0 +1,42 @@
+{
+   "head":{
+      "link":[
+         
+      ],
+      "vars":[
+         "person",
+         "nombreCompleto",
+         "email",
+         "nombreDepartamento",
+         "nombreUniversidad"
+      ]
+   },
+   "results":{
+      "distinct":false,
+      "ordered":true,
+      "bindings":[
+         {
+            "person":{
+               "type":"uri",
+               "value":"http://gnoss/76B0682F-3249-4441-945B-5FDD000370B6"
+            },
+            "nombreCompleto":{
+               "type":"literal",
+               "value":"Antonio Fernando Skarmeta Gomez"
+            },
+            "email":{
+               "type":"literal",
+               "value":"skarmeta@um.es"
+            },
+            "nombreDepartamento":{
+               "type":"literal",
+               "value":"INGENIERÍA DE LA INFORMACIÓN Y LAS COMUNICACIONES"
+            },
+            "nombreUniversidad":{
+               "type":"literal",
+               "value":"UNIVERSIDAD DE MURCIA"
+            }
+         }
+      ]
+   }
+}

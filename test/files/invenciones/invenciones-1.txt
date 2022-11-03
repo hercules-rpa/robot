@@ -1,0 +1,17 @@
+[
+    {
+        "id": 116,
+        "titulo": "Programa informático RREA",
+        "fechaComunicacion": "2021-04-18T17:00:00Z",
+        "descripcion": "El programa RREA (Respuesta Rápida al Estado Ambiental).",
+        "comentarios": "SOFTWARE",
+        "proyectoRef": null,
+        "tipoProteccion": {
+            "id": 8,
+            "nombre": "Software",
+            "padre": null,
+            "tipoPropiedad": "INTELECTUAL"
+        },
+        "activo": true
+    }
+]
