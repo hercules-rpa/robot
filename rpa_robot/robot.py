@@ -55,6 +55,7 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
         
         ControllerRobot(self)
 
+        
     def __instance_process(self, process_dict):
         # hacer algo en este caso para hacerlo robusto, enviar error proceso al orquestador. COMPROBAR SI EL ORQUESTADOR CONOCE ESE PROCESO, Y SI SE VERIFICA PEDIR QUE ACTUALICE EL REPOSITORIO AL ROBOT
         try:
@@ -184,7 +185,7 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
             await self.handle_msgResumeRobot(msg)
         elif(type_msg == messages.UPDATE_INFO):
             await self.handle_msgUpdateInfo(msg)
-
+    
     async def handle_msgInit(self, msg):
         print("Conexion establecida")
         global time_keep
@@ -216,8 +217,8 @@ class Robot(ListenerMsg, ListenerLog, ListenerProcess):
         self.pause()
 
     async def handle_msgResumeRobot(self, msg):
-        self.resume()
-
+        self.resume()        
+    
     async def handle_msgKillProcess(self, msg):
         id_schedule = msg['SCHEDULE']
         self.__remove_process(id_schedule)

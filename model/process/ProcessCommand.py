@@ -18,7 +18,13 @@ class Pstatus(Enum):
 
 class ProcessID(Enum):
     HOLA_MUNDO = 1
+    COMPOSE_TEST = 2
     SEND_MAIL = 3
+    SELENIUM_TSLA = 4
+    EXTRACT_TABLES = 5
+    DOWNLOAD_FILES = 6
+    EXTRACT_OFFER = 7
+    EXTRACT_RESULT = 8
     EXTRACT_CALLS = 9
     EXTRACT_REGULATORY_BASES = 10
     EXTRACT_XML = 11
@@ -41,6 +47,8 @@ class ProcessID(Enum):
     COLLABORATIVE_GRAPH = 29
     HYBRID_ENGINE = 30
     REMINDER_PROFILE = 26
+    EXECUTE_COMMAND = 97
+    RESTART_ROBOT = 98
 
 
 class ProcessCommand(ABC):

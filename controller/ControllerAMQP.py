@@ -79,7 +79,6 @@ class ControllerAMQP(metaclass=Singleton):
                 "amqp://"+self.user+":"+self.password+"@"+self.host+":"+self.port+"/", loop=None
             )
             
-            
             channel_send =  await connection_send.channel()    # type: aio_pika.Channel
             exchange_send = await channel_send.declare_exchange(
                 self.exchange_name, ExchangeType.TOPIC, auto_delete=True, durable=False
