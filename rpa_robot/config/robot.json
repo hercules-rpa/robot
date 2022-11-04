@@ -14,9 +14,9 @@
         "name":             "RobotUMU",
         "address":          "Espinardo",
         "registrations":    "Universidad de Murcia",
-        "ip_api": "api.rpa.hercules.com",
+        "ip_api": "rpa-api-desa.um.es",
         "port_api":        "80",
-        "frontend":              "http://rpa.hercules.com"
+        "frontend":        "http://rpa-desa.um.es"
     }
 
 
