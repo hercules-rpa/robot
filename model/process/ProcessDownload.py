@@ -23,7 +23,7 @@ class ProcessDownload(ProcessCommand):
         start = time.time()
         self.log.start_log(start)
         list_url = self.parameters['URL']
-        print("Empezamos la descarga de ficheros. Número de ficheros a descargar: "+str(len(list_url)))
+        self.notify_update("Empezamos la descarga de ficheros. Número de ficheros a descargar: "+str(len(list_url)))
         self.log.completed = 0
         num_files = 1
         for url in list_url:
@@ -38,10 +38,9 @@ class ProcessDownload(ProcessCommand):
                 num_files += 1
             except:
                 self.log.state = "ERROR"
-                self.update_log("Error descargando el fichero "+url, True)
-                print("Error en la descarga de fichero, el fichero ya existe?")
+                self.notify_update("Error en la descarga de fichero, el fichero ya existe?")
 
-        print("La descarga de fichero ha terminado")
+        self.notify_update("La descarga de fichero ha terminado")
         end_time = time.time()
         self.log.end_log(end_time)
         self.state = pstatus.FINISHED

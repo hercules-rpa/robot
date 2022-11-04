@@ -1,0 +1,2 @@
+{"head": {"link": [], "vars": ["idOferta", "titulo", "description", "investigador", "nombre", "fecha"]},
+"results": { "distinct": false, "ordered": true, "bindings": [ ] } }

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 5,
+        "invencion": {
+            "id": 114,
+            "tipoProteccion": {
+                "id": 1,
+                "tipoPropiedad": "INDUSTRIAL"
+            }
+        },
+        "titulo": "Patente",
+        "fechaPrioridadSolicitud": "2022-02-28T23:00:00Z",
+        "fechaFinPriorPresFasNacRec": "2022-03-31T22:00:00Z",
+        "fechaPublicacion": null,
+        "fechaConcesion": null,
+        "fechaCaducidad": null,
+        "viaProteccion": {
+            "id": 3,
+            "nombre": "Europea",
+            "descripcion": "Tipo de vía de protección en Europa",
+            "tipoPropiedad": "INDUSTRIAL",
+            "paisEspecifico": false,
+            "mesesPrioridad": 1,
+            "extensionInternacional": false,
+            "variosPaises": true
+        },
+        "numeroSolicitud": "123XTP",
+        "numeroPublicacion": "",
+        "numeroConcesion": "",
+        "numeroRegistro": "",
+        "estado": "SOLICITADA",
+        "tipoCaducidad": null,
+        "agentePropiedadRef": "00065350",
+        "paisProteccionRef": null,
+        "comentarios": "",
+        "activo": true
+    }
+]

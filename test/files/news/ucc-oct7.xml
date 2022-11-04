@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>Publicador de contenidos</title>
+  <link rel="alternate" href="https://www.um.es/web/ucc/inicio"/>
+  <link rel="self" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/rss"/>
+  <subtitle>Publicador de contenidos</subtitle>
+  <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/rss</id>
+  <updated>2022-10-10T14:52:50Z</updated>
+  <dc:date>2022-10-10T14:52:50Z</dc:date>
+  <entry>
+    <title>La UMU y la Fundación Integra Digital nos dan algunas claves para desmontar “cuñados”</title>
+    <link rel="alternate" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/33598067"/>
+    <author>
+      <name>DELFINA</name>
+    </author>
+    <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/33598067</id>
+    <updated>2022-09-05T11:08:30Z</updated>
+    <published>2022-09-05T10:45:00Z</published>
+    <summary type="html">&lt;p&gt;En el marco de los proyectos PreteritUM y Patrimonio Digital se han realizado cuatro audiovisuales para combatir diferentes mitos y falsas creencias de la historia&lt;/p&gt;</summary>
+    <dc:creator>DELFINA</dc:creator>
+    <dc:date>2022-09-05T10:45:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>La Real Academia de Medicina y Cirugía lanza su convocatoria de Premios de Investigación 2022</title>
+    <link rel="alternate" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/33589342"/>
+    <author>
+      <name>ROCIO</name>
+    </author>
+    <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/33589342</id>
+    <updated>2022-09-05T07:21:54Z</updated>
+    <published>2022-09-05T06:45:00Z</published>
+    <summary type="html">&lt;p&gt;En total se otorgarán 17.000 € entre 15 premios para reconocer la labor de profesionales y estudiantes del área de la salud de la Región de Murcia.&lt;/p&gt;</summary>
+    <dc:creator>ROCIO</dc:creator>
+    <dc:date>2022-09-05T06:45:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>La Universidad de Murcia organiza una jornada informativa sobre el European Research Council</title>
+    <link rel="alternate" href="https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/33529768"/>
+    <author>
+      <name>DELFINA</name>
+    </author>
+    <id>https://www.um.es/web/ucc/inicio/-/asset_publisher/qQfO4ukErIc3/content/id/33529768</id>
+    <updated>2022-09-02T06:41:38Z</updated>
+    <published>2022-09-02T06:37:00Z</published>
+    <summary type="html">&lt;p&gt;El 16 de septiembre en el Salón de Actos Hermenegildo Lumeras de Castro de la Facultad de Química tendrá lugar un acto presencial sobre las novedades de las convocatorias 2023 del European Research Council&amp;nbsp;&lt;/p&gt;</summary>
+    <dc:creator>DELFINA</dc:creator>
+    <dc:date>2022-09-02T06:37:00Z</dc:date>
+  </entry>
+</feed>

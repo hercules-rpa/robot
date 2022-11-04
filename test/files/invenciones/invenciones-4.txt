@@ -1,0 +1,72 @@
+[
+    {
+        "id": 107,
+        "titulo": "Dispositivo de aseguramiento de tuerca y tornillo",
+        "fechaComunicacion": "2021-06-22T15:00:00Z",
+        "descripcion": "La presente invención se refiere a un dispositivo de aseguramiento de tuerca y tornillo en donde la tuerca tiene un orificio roscado, el tornillo tiene una porción de su longitud con un roscado exterior para conexión por rosca con la tuerca.",
+        "comentarios": "La tecnología se encuentra protegida mediante patente nacional española",
+        "proyectoRef": null,
+        "tipoProteccion": {
+            "id": 5,
+            "nombre": "Marca nacional",
+            "padre": {
+                "id": 4,
+                "nombre": "Marca",
+                "padre": null,
+                "tipoPropiedad": "INDUSTRIAL"
+            },
+            "tipoPropiedad": "INDUSTRIAL"
+        },
+        "activo": true
+    },
+    {
+        "id": 111,
+        "titulo": "Concentrador solar térmico para generación de vapor industrial y frío solar",
+        "fechaComunicacion": "2021-06-22T15:00:00Z",
+        "descripcion": "La invención consiste en un concentrador parabólico de foco puntual, que utiliza tecnología de concentración de la luz solar. La tecnología incorpora un novedoso receptor, patentado, desarrollado por el grupo de investigación, que optimiza la captación de radiación solar, gracias a un novedoso diseño y el empleo de materiales y elementos complementarios que lo hacen más eficiente.",
+        "comentarios": "La tecnología se encuentra protegida mediante patente nacional española",
+        "proyectoRef": null,
+        "tipoProteccion": {
+            "id": 5,
+            "nombre": "Marca nacional",
+            "padre": {
+                "id": 4,
+                "nombre": "Marca",
+                "padre": null,
+                "tipoPropiedad": "INDUSTRIAL"
+            },
+            "tipoPropiedad": "INDUSTRIAL"
+        },
+        "activo": true
+    },
+    {
+        "id": 112,
+        "titulo": "Trampa para Insectos",
+        "fechaComunicacion": "2021-03-15T16:00:00Z",
+        "descripcion": "La presente invención se refiere a una trampa para aquellos insectos que viven en el suelo o que tienen capacidad de vuelo activo y que, generalmente, son nocivos para las plantas, los árboles, los frutos o la salud; en caso de que los insectos o las plagas ocurran en un ámbito industrial, alimentario, hostelero o público, como colegios u hospitales.",
+        "comentarios": "Ciencias",
+        "proyectoRef": null,
+        "tipoProteccion": {
+            "id": 3,
+            "nombre": "Diseño industrial ",
+            "padre": null,
+            "tipoPropiedad": "INDUSTRIAL"
+        },
+        "activo": true
+    },
+    {
+        "id": 113,
+        "titulo": "Programa informático RREA: Respuesta Rápida al Estado Ambiental",
+        "fechaComunicacion": "2021-04-18T17:00:00Z",
+        "descripcion": "El programa RREA (Respuesta Rápida al Estado Ambiental) tiene como objetivo estimar el efecto de diferentes presiones ambientales sobre las masas de agua superficiales continentales. Está pensado para su aplicación a escala de grandes sistemas de recursos hídricos. Su utilidad es muy variada permitiendo, por ejemplo: definir zonas no muestreadas con alto riesgo de contaminación, estimar la eficacia de las medidas de depuración o calcular la situación del sistema en diferentes escenarios (cambio climático, épocas de sequía, etc.) Básicamente el programa estima concentraciones de contaminantes en las masas de agua superficiales teniendo en cuenta la carga que se aporta en cada masa, la contaminación que proviene de aguas arriba y la posible degradación que se produce en la propia masa de agua. El programa ha sido desarrollado por el profesor Javier Paredes Arquiola del Grupo de Ingeniería de Recursos Hídricos (GIRH) de la Universidad Politécnica de Valencia (UPV). Este programa está enfocado como una herramienta fundamental para los entes gestores de agua y consultoras especializadas en recursos hídricos. El programa RREA es determinante para el desarrollo de los planes hidrológicos de cuenca al amparo de la Directiva Marco en Política de Aguas.",
+        "comentarios": "SOFTWARE",
+        "proyectoRef": null,
+        "tipoProteccion": {
+            "id": 8,
+            "nombre": "Software",
+            "padre": null,
+            "tipoPropiedad": "INTELECTUAL"
+        },
+        "activo": true
+    }
+]

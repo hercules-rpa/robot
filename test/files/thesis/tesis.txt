@@ -1,0 +1,40 @@
+[
+    {
+        "id": "A49198625S2465P31012022F",
+        "personaRef": " ",
+        "tituloTrabajo": "Acuerdo previo (1). Pentaquarks.",
+        "fechaDefensa": "2022-01-11",
+        "alumno": "49198625",
+        "tipoProyecto": {
+            "id": "055",
+            "nombre": "Proyecto de fin de carrera"
+        },
+        "calificacionObtenida": "2",
+        "coDirectorTesisRef": null,
+        "doctoradoEuropeo": false,
+        "fechaMencionDoctoradoEuropeo": null,
+        "mencionCalidad": false,
+        "fechaMencionCalidad": null,
+        "mencionInternacional": false,
+        "mencionIndustrial": false
+    },
+    {
+        "id": "A77597863S5962P25012022F",
+        "personaRef": " ",
+        "tituloTrabajo": "La prensa sensacionalista y el poder de reivindicación a través del fútbol: Análisis crítico del mensaje periodístico sobre Inglaterra y Argentina en el Mundial de fútbol de México 1986 con la guerra de Malvinas como eje central",
+        "fechaDefensa": "2022-01-19",
+        "alumno": "77597863",
+        "tipoProyecto": {
+            "id": "055",
+            "nombre": "Proyecto de fin de carrera"
+        },
+        "calificacionObtenida": "2",
+        "coDirectorTesisRef": null,
+        "doctoradoEuropeo": false,
+        "fechaMencionDoctoradoEuropeo": null,
+        "mencionCalidad": false,
+        "fechaMencionCalidad": null,
+        "mencionInternacional": false,
+        "mencionIndustrial": false
+    }
+]

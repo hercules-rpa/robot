@@ -1,9 +1,9 @@
 {
     "AMQP-SETTING":{
-        "user":             "guest",
-        "password":         "guest",
-        "host":             "127.0.0.1",
-        "port":             "5672",
+        "user":             "admin",
+        "password":         "H3rcul3sRPA",
+        "host":             "10.208.99.102",
+        "port":             "32003",
         "subscriptions":    ["rpa.robot.robot1","rpa.robot.general"],
         "exchange_name":    "rpa",
         "queue_name":       "robot1"
@@ -13,8 +13,10 @@
         "id":               "robot1",
         "name":             "RobotUMU",
         "address":          "Espinardo",
-        "registrations":    "Pleiades"
-
+        "registrations":    "Universidad de Murcia",
+        "ip_api": "rpa-api-desa.um.es",
+        "port_api":        "80",
+        "frontend":        "http://rpa-desa.um.es"
     }
 
 

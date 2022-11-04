@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sumario>
+  <meta>
+    <pub>BOE</pub>
+    <anno>2022</anno>
+    <fecha>09/02/2022</fecha>
+    <fechaInv>2022/02/09</fechaInv>
+    <fechaAnt>08/02/2022</fechaAnt>
+    <fechaAntAnt>07/02/2022</fechaAntAnt>
+    <fechaSig>10/02/2022</fechaSig>
+    <fechaPub>miércoles 9 de febrero de 2022</fechaPub>
+    <pubDate>Wed, 09 Feb 2022 00:00:00 +0100</pubDate>
+  </meta>
+  <diario nbo="34">
+    <sumario_nbo id="BOE-S-2022-34">
+      <urlPdf szBytes="354321" szKBytes="346">/boe/dias/2022/02/09/pdfs/BOE-S-2022-34.pdf</urlPdf>
+    </sumario_nbo>
+    <seccion num="5A" nombre="V. Anuncios. - A. Anuncios de lic....">
+	<departamento nombre="MINISTERIO DE DEFENSA">
+		<item id="BOE-B-2014-36487">
+			<titulo>Anuncio de formalización de contratos ....</titulo>
+			<urlPdf szBytes="166797" szKBytes="163" numPag="1">/boe/dias/2014/10/18/pdfs/BOE-B-2014-36487.pdf</urlPdf>
+			<urlHtm>/diario_boe/txt.php?id=BOE-B-2014-36487</urlHtm>
+			<urlXml>/diario_boe/xml.php?id=BOE-B-2014-36487</urlXml>
+		</item>
+	</departamento>
+	<departamento nombre="MINISTERIO DE JUSTICIA">
+		<item id="BOE-B-2014-36582">
+			<titulo>Anuncio de la Subsecretaría ....</titulo>
+			<urlPdf szBytes="158995" szKBytes="155" numPag="1">/boe/dias/2014/10/18/pdfs/BOE-B-2014-36582.pdf</urlPdf>
+			<urlHtm>/diario_boe/txt.php?id=BOE-B-2014-36582</urlHtm>
+			<urlXml>/diario_boe/xml.php?id=BOE-B-2014-36582</urlXml>
+		</item>
+		<item id="BOE-B-2014-365866">
+			<titulo>Anuncio de la Subsecretarías ....</titulo>
+			<urlPdf szBytes="158995" szKBytes="155" numPag="1">/boe/dias/2014/10/18/pdfs/BOE-B-2014-36582.pdf</urlPdf>
+			<urlHtm>/diario_boe/txt.php?id=BOE-B-2014-36582</urlHtm>
+			<urlXml>/diario_boe/xml.php?id=BOE-B-2014-36582</urlXml>
+		</item>
+	</departamento>
+   </seccion>
+ </diario>
+</sumario>

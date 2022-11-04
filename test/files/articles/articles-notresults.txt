@@ -1,0 +1,1 @@
+{ "head": { "link": [], "vars": ["s", "nombreDoc", "nombreRevista", "fecha", "nombreArea", "autor", "ORCID"] }, "results": { "distinct": false, "ordered": true, "bindings": [ ] } }
