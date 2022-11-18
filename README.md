@@ -16,7 +16,7 @@ El robot se encuentra desligado de los procesos, por lo que puede ejecutar cualq
 
 En el la carpeta principal del proyecto encontramos el archivo requierements.txt que será necesario para la funcionalidad básica del robot:
 
-     `pip install -r requierements.txt`
+`pip install -r requierements.txt`
 
 Una vez instaladas las librerías necesarias debemos establecer la configuración del robot, modificando el fichero de la carpeta rpa_robot/config/robot.json:
 
