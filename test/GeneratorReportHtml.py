@@ -5,7 +5,7 @@ import unittest
 import os
 import time
 # Definir el directorio del caso de prueba como el directorio actual
-test_dir = os.path.dirname(os.path.realpath(__file__))  # ../hercules-rpa/test
+test_dir = os.path.dirname(os.path.realpath(__file__))  # ./hercules-rpa/test
 test_dir1 = test_dir + '/reports'
 
 if __name__ == "__main__":
