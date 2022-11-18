@@ -35,3 +35,9 @@ Configuración de los parámetros de ROBOT-SETTING:
 
 
 El robot podría necesitar librerías adicionales para la ejecución de ciertos procesos.
+
+## Ejecución
+
+Una vez instalado todo para la ejecución del robot simplemente haremos:
+
+`python LaunchRobot.py orchestrator.json`
