@@ -1,0 +1,23 @@
+{
+    "AMQP-SETTING":{
+        "user":             "admin",
+        "password":         "H3rcul3sRPA",
+        "host":             "10.208.99.102",
+        "port":             "31200",
+        "subscriptions":    ["rpa.robot.robot3","rpa.robot.general"],
+        "exchange_name":    "rpa",
+        "queue_name":       "robot3"
+    },
+
+    "ROBOT-SETTING":{
+        "id":               "robot3",
+        "name":             "RobotTestJose",
+        "address":          "Murcia",
+        "registrations":    "Ronda Sur",
+        "ip_api": "rpa-api-desa.um.es",
+        "port_api":        "80",
+        "frontend":        "https://rpa-desa.um.es"
+    }
+
+
+}
