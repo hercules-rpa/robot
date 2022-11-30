@@ -4,14 +4,14 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(os.path.dirname(currentdir))
 sys.path.insert(1, parentdir)
 import unittest
-import model.process.Process4.ProcessCollaborativeFiltering as ProcessFiltroColaborativo
+import model.process.Process4.ProcessCollaborativeFiltering as ProcessCollaborativeFiltering
 import model.process.Process4.ProcessRSContent as ProcessSRContenido
 import model.process.Process4.ProcessHybridEngine as ProcessMotorHibrido
 import model.process.Process4.model.ClassProcess4 as p4
 import pandas as pd
 
 class TestSistemaRecomendacion(unittest.TestCase):
-    process = ProcessFiltroColaborativo.ProcessFiltroColaborativo(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=None)
+    process = ProcessCollaborativeFiltering.ProcessCollaborativeFiltering(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=None)
     
     def test_filtro_colaborativo_0(self): 
         inputAreas = [
@@ -29,7 +29,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         parameters = {}
         parameters['investigadores'] = investigadores
 
-        filtroColaborativo = ProcessFiltroColaborativo.ProcessFiltroColaborativo(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        filtroColaborativo = ProcessCollaborativeFiltering.ProcessCollaborativeFiltering(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         result = filtroColaborativo.recomedacion_filtro_colaborativo(inputAreas, df_inv, investigadores, threshold_count=150)
         self.assertEqual(result[90],1)
         self.assertEqual(result[91],0.30000000000000004)
@@ -54,7 +54,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         parameters = {}
         parameters['investigadores'] = investigadores
 
-        filtroColaborativo = ProcessFiltroColaborativo.ProcessFiltroColaborativo(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        filtroColaborativo = ProcessCollaborativeFiltering.ProcessCollaborativeFiltering(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         result = filtroColaborativo.recomedacion_filtro_colaborativo(inputAreas, df_inv, investigadores, threshold_count=150)
         self.assertEqual(result[90],0.6)
         self.assertEqual(result[91],1)
@@ -79,7 +79,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         parameters = {}
         parameters['investigadores'] = investigadores
 
-        filtroColaborativo = ProcessFiltroColaborativo.ProcessFiltroColaborativo(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        filtroColaborativo = ProcessCollaborativeFiltering.ProcessCollaborativeFiltering(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         result = filtroColaborativo.recomedacion_filtro_colaborativo(inputAreas, df_inv, investigadores, threshold_count=5)
         self.assertEqual(result[90],0.5199381588731546)
         self.assertEqual(result[91],0.5290732865723501)
@@ -105,7 +105,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         parameters = {}
         parameters['investigadores'] = investigadores
 
-        filtroColaborativo = ProcessFiltroColaborativo.ProcessFiltroColaborativo(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        filtroColaborativo = ProcessCollaborativeFiltering.ProcessCollaborativeFiltering(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         result = filtroColaborativo.recomedacion_filtro_colaborativo(inputAreas, df_inv, investigadores, threshold_count=5)
         self.assertEqual(result[90],0.6108669001681826)
         self.assertEqual(result[91],0.4920725573836336)
@@ -130,7 +130,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         parameters = {}
         parameters['investigadores'] = investigadores
 
-        filtroColaborativo = ProcessFiltroColaborativo.ProcessFiltroColaborativo(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        filtroColaborativo = ProcessCollaborativeFiltering.ProcessCollaborativeFiltering(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         result = filtroColaborativo.recomedacion_filtro_colaborativo(inputAreas, df_inv, investigadores, threshold_count=5)
         self.assertEqual(result[90],0.7699276745316028)
         self.assertEqual(result[91],0.5025586290195514)
@@ -147,7 +147,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         convocatoria = p4.Convocatoria(2,"test",[areaTematica1], None)
         parameters = {}
         parameters['convocatoria'] = convocatoria
-        sr_contenido = ProcessSRContenido.ProcessSRContenido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        sr_contenido = ProcessSRContenido.ProcessRSContent(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         convo_input_format = ['BIO AEI Proyectos Unión  Europea COMPETITIVOS EUROPEAN COMMISION Energy efficiency EUROPEAN COMMISION Subvención']
         investigadores = {}
         df_inv = pd.read_csv('hercules-rpa/test/process4/testRecomendacionContenido.csv')
@@ -169,7 +169,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         convocatoria = p4.Convocatoria(2,"test",[areaTematica1], None)
         parameters = {}
         parameters['convocatoria'] = convocatoria
-        sr_contenido = ProcessSRContenido.ProcessSRContenido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        sr_contenido = ProcessSRContenido.ProcessRSContent(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         convo_input_format = ['Convocatoria PCI Energy efficiency EUROPEAN COMMISION Subvención']
         investigadores = {}
         df_inv = pd.read_csv('hercules-rpa/test/process4/testRecomendacionContenido.csv')
@@ -191,7 +191,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         convocatoria = p4.Convocatoria(2,"test",[areaTematica1], None)
         parameters = {}
         parameters['convocatoria'] = convocatoria
-        sr_contenido = ProcessSRContenido.ProcessSRContenido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        sr_contenido = ProcessSRContenido.ProcessRSContent(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         convo_input_format = ['Convocatoria PCI UGI Proyectos IDI Subvención']
         investigadores = {}
         df_inv = pd.read_csv('hercules-rpa/test/process4/testRecomendacionContenido.csv')
@@ -213,7 +213,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         convocatoria = p4.Convocatoria(2,"test",[areaTematica1], None)
         parameters = {}
         parameters['convocatoria'] = convocatoria
-        sr_contenido = ProcessSRContenido.ProcessSRContenido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        sr_contenido = ProcessSRContenido.ProcessRSContent(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         convo_input_format = ['AEI UGI EUROPEAN COMMISION Retos sociales']
         investigadores = {}
         df_inv = pd.read_csv('hercules-rpa/test/process4/testRecomendacionContenido.csv')
@@ -235,7 +235,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         convocatoria = p4.Convocatoria(2,"test",[areaTematica1], None)
         parameters = {}
         parameters['convocatoria'] = convocatoria
-        sr_contenido = ProcessSRContenido.ProcessSRContenido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
+        sr_contenido = ProcessSRContenido.ProcessRSContent(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=parameters)
         convo_input_format = ['Convocatoria PCI UGI Proyectos IDI Subvención']
         investigadores = {}
         df_inv = pd.read_csv('hercules-rpa/test/process4/testRecomendacionContenido.csv')
@@ -264,7 +264,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         format_input['peso'] = 0.2
         format_input['data'] = test_c
         input_list.append(format_input)
-        motorHibrido = ProcessMotorHibrido.ProcessMotorHibrido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
+        motorHibrido = ProcessMotorHibrido.ProcessHybridEngine(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
         motorHibrido.execute()
         result = motorHibrido.result
         self.assertEqual(result[90],0.7103417537999004)
@@ -287,7 +287,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         format_input['peso'] = 0.2
         format_input['data'] = test_c
         input_list.append(format_input)
-        motorHibrido = ProcessMotorHibrido.ProcessMotorHibrido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
+        motorHibrido = ProcessMotorHibrido.ProcessHybridEngine(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
         motorHibrido.execute()
         result = motorHibrido.result
         self.assertEqual(result[90],0.4522329185610152)
@@ -310,7 +310,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         format_input['peso'] = 0.2
         format_input['data'] = test_c
         input_list.append(format_input)
-        motorHibrido = ProcessMotorHibrido.ProcessMotorHibrido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
+        motorHibrido = ProcessMotorHibrido.ProcessHybridEngine(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
         motorHibrido.execute()
         result = motorHibrido.result
         self.assertEqual(result[90],0.4509955391890571)
@@ -333,7 +333,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         format_input['peso'] = 0.2
         format_input['data'] = test_c
         input_list.append(format_input)
-        motorHibrido = ProcessMotorHibrido.ProcessMotorHibrido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
+        motorHibrido = ProcessMotorHibrido.ProcessHybridEngine(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
         motorHibrido.execute()
         result = motorHibrido.result
         self.assertEqual(result[90],0.4569362531219984)
@@ -356,7 +356,7 @@ class TestSistemaRecomendacion(unittest.TestCase):
         format_input['peso'] = 0.2
         format_input['data'] = test_c
         input_list.append(format_input)
-        motorHibrido = ProcessMotorHibrido.ProcessMotorHibrido(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
+        motorHibrido = ProcessMotorHibrido.ProcessHybridEngine(id_schedule = None, id_log = None, id_robot = "1", priority = "1", log_file_path = None, parameters=input_list)
         motorHibrido.execute()
         result = motorHibrido.result
         self.assertEqual(result[90],0.6259882001499708)

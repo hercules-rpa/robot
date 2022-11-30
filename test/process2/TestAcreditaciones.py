@@ -256,7 +256,7 @@ class TestAcreditaciones(unittest.TestCase):
         evaluation:AccreditationEvaluationOtrasEspecialidadesSanitarias = commission.get_accreditation_evaluation(articles, accreditation)
         self.assertTrue(evaluation.positive)
         self.assertIs(len(evaluation.scientific_production),135)
-        self.assertIs(len(evaluation.articles_authorship), 7)
+        self.assertIs(len(evaluation.articles_authorship), 25)
       
     def test_accreditation_commission8_catedra(self):  
         """
@@ -271,7 +271,7 @@ class TestAcreditaciones(unittest.TestCase):
         evaluation:AccreditationEvaluationOtrasEspecialidadesSanitarias = commission.get_accreditation_evaluation(articles, accreditation)
         self.assertTrue(evaluation.positive)
         self.assertIs(len(evaluation.scientific_production),135)
-        self.assertIs(len(evaluation.articles_authorship), 16)
+        self.assertIs(len(evaluation.articles_authorship), 75)
 
     def test_accreditation_commission15_16_titularidad(self): 
         """
