@@ -169,7 +169,8 @@ class ProcessExtractCall(ProcessCommand):
                             "No ha sido posible inyectar la convocatiria en Hércules-SGI.")
                 except Exception as e:
                     self.update_log(
-                        "No se ha podido inyectar en el SGI la convocatoria de la BDNS con título: " + item['titulo'])
+                        "No se ha podido inyectar en el SGI la convocatoria de la BDNS con título: " + item['titulo'], True)
+                    res = None
 
                 if res:
                     url_update = self.ip_api + ":" + self.port_api + \
