@@ -245,7 +245,7 @@ class GrantsEuropeExtractor():
             }
             payload = json.dumps(new_array)
             bbdd_url = self.server + ":" + self.port +"/api/orchestrator/register/convocatorias"
-            response = self.rpa.post(bbdd_url, headers=headers, data=payload)
+            response = self.rpa.post(bbdd_url, payload)
 
     def change_notify(self) -> None:
         """
@@ -264,7 +264,7 @@ class GrantsEuropeExtractor():
                 JSON = json.loads(response.content)
                 if JSON[0]['notificada'] == False:
                     bbdd_url = self.server + ":" + self.port +"/api/orchestrator/register/convocatoria/" + str(JSON[0]['id'])
-                    patch = self.rpa.patch(bbdd_url,data=payload)
+                    patch = self.rpa.patch(bbdd_url, payload)
 
     def search_europe_date_file(self, path: str, start_date: str, end_date: str) -> list:
         """
