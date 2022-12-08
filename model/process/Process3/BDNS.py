@@ -175,14 +175,22 @@ class BDNS:
                     url = self.conf['bdns_url'] + "GE/es/convocatoria/" + \
                         str(num_bdns) + "/document/" + str(j[0])
                     response = requests.request("GET", url, verify=False)
-                    with open(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]), 'wb') as file:
-                        file.write(response.content)
-                        url_cdn = cs.get_url_upload_cdn(self.server, self.port)
-                        response = self.upload_file(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]), url_cdn)
-                        if response and response.status_code == 200:
-                            upload_response = json.loads(response.text)
-                            name_resources.append(upload_response["url_cdn"])
-                    os.remove(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]))
+                    if response and response.status_code == 200:
+                        try:
+                            with open(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]), 'wb') as file:
+                                file.write(response.content)
+                                file.close()
+                            url_cdn = cs.get_url_upload_cdn(self.server, self.port)
+                            response = self.upload_file(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]), url_cdn)
+                            if response and response.status_code == 200:
+                                upload_response = json.loads(response.text)
+                                name_resources.append(upload_response["url_cdn"])
+                                os.remove(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]))
+                            else:
+                                name_resources.append("El archivo no se ha podido subir al CDN")
+                        except Exception as e:
+                            if os.path.exists(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3])):
+                                os.remove(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]))
                 os.rmdir(DOWNLOAD_DIR)
             context.close()
             browser.close()
