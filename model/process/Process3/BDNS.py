@@ -86,7 +86,7 @@ class BDNS:
                     insert['fecha_publicacion'] = time.mktime(time.strptime(data[key]['Fecha de registro'],'%d/%m/%Y'))
                     insert['titulo'] = data[key]['Título de la convocatoria']
                     insert['_from'] = 'BDNS'
-                    insert['url'] = self.conf['bdns_url'] + '/GE/es/convocatoria/' + data[key]['Código BDNS']
+                    insert['url'] = self.conf['bdns_url'] + 'GE/es/convocatoria/' + data[key]['Código BDNS']
                     if 'transferencia' in str(data[key]['Título de la convocatoria']).lower():
                         insert['unidad_gestion'] = 'OTRI'
                     elif 'investigacion' in str(data[key]['Título de la convocatoria']).lower() or 'desarrollo' in str(data[key]['Título de la convocatoria']).lower():

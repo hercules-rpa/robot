@@ -160,6 +160,7 @@ class ProcessExtractCall(ProcessCommand):
                     "%Y-%m-%dT%H:%M:%SZ")
                 insert['observaciones'] = item['entidad_convocante'] + \
                     ' ' + item['entidad_gestora']
+                res = None
                 try:
                     if sgi:
                         res = sgi.post_announcement(json.dumps(insert))
@@ -171,7 +172,6 @@ class ProcessExtractCall(ProcessCommand):
                 except Exception as e:
                     self.update_log(
                         "No se ha podido inyectar en el SGI la convocatoria de la BDNS con título: " + item['titulo'], True)
-                    res = None
 
                 if res:
                     url_update = self.ip_api + ":" + self.port_api + \
