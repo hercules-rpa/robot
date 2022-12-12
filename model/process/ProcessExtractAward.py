@@ -75,7 +75,7 @@ class ProcessExtractAward(ProcessCommand):
                     else:
                         self.update_log("No se ha encontrado ninguna información que el robot haya sido capaz de inferir de la concesión ", True)
             else:
-                self.log.update_log("No hay concesiones que tengan un estado distinto a: BORRADOR, CONCEDIDA, DENEGADA, DESISTIDA ó EXCLUIDA", True)
+                self.update_log("No hay concesiones que tengan un estado distinto a: BORRADOR, CONCEDIDA, DENEGADA, DESISTIDA ó EXCLUIDA", True)
         else:
             self.update_log('ERROR al obtener la información relacionada con Hércules-SGI.', True)
             self.log.state = 'ERROR'
