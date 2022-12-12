@@ -51,6 +51,15 @@ class Adapter_BDNS(Adapter_Call):
         """
         return self.BDNS.obtain_resources_bdns(bdns_num)
 
+    def obtain_resources_award(self, bdns_num: int) -> list:
+        """
+        Método para descargar los archivos de una convocatoria.
+
+        :param bdns_num int: Número de la BDNS.
+        :return array con las rutas donde se encuentran esos archivos.
+        """
+        return self.BDNS.obtain_resources_bdns_award(bdns_num)
+
     def expand_info(self, bdns_num: int) -> dict:
         """
         Método para obtener la información ampliada de una convocatoria.

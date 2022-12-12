@@ -10,6 +10,7 @@ from model.SGI import SGI
 import time
 import requests
 import json
+import os
 
 NAME            = "Extract Convocatorias"
 DESCRIPTION     = "Proceso que extrae las últimas convocatorias de las fuentes de datos dadas"
@@ -36,8 +37,7 @@ class ProcessExtractAward(ProcessCommand):
         adapter_bdns = Adapter_BDNS(self.ip_api, self.port_api)
         sgi = cs.get_sgi(self.ip_api, self.port_api)
         if sgi:
-            #list_awards = [{'createdBy': '00391433', 'creationDate': '2022-05-05T09:02:28.475Z', 'lastModifiedBy': '00391433', 'lastModifiedDate': '2022-05-05T09:04:35.943Z', 'id': 23, 'titulo': '', 'convocatoriaId': 35, 'codigoExterno': '', 'codigoRegistroInterno': 'SGI_SLC2320220505', 'estado': {'createdBy': '00391433', 'creationDate': '2022-05-05T09:04:35.941Z', 'lastModifiedBy': '00391433', 'lastModifiedDate': '2022-05-05T09:04:35.941Z', 'id': 47, 'solicitudId': 23, 'estado': 'SOLICITADA', 'fechaEstado': '2022-05-05T09:02:37.084Z', 'comentario': ''}, 'creadorRef': '00391433', 'solicitanteRef': '28710458', 'observaciones': '', 'convocatoriaExterna': '', 'unidadGestionRef': '3', 'formularioSolicitud': 'PROYECTO', 'tipoSolicitudGrupo': None, 'activo': True},{"createdBy":"00391433","creationDate":"2022-05-09T14:20:32.068Z","lastModifiedBy":"00391433","lastModifiedDate":"2022-05-09T14:20:57.238Z","id":25,"titulo":"","convocatoriaId":35,"codigoExterno":"","codigoRegistroInterno":"SGI_SLC2520220509","estado":{"createdBy":"00391433","creationDate":"2022-05-09T14:20:57.238Z","lastModifiedBy":"00391433","lastModifiedDate":"2022-05-09T14:20:57.238Z","id":52,"solicitudId":25,"estado":"SOLICITADA","fechaEstado":"2022-05-09T14:20:42.496Z","comentario":""},"creadorRef":"00391433","solicitanteRef":"48495234","observaciones":"","convocatoriaExterna":"","unidadGestionRef":"3","formularioSolicitud":"PROYECTO","tipoSolicitudGrupo":None,"activo":True}]
-            list_awards = self.get_valid_forms(forms=sgi.get_forms()) #self.get_valid_forms(solicitudes=sgi.get_forms("convocatoriaId==35")) [{'createdBy': '00391433', 'creationDate': '2022-05-09T14:20:32.068Z', 'lastModifiedBy': '00391433', 'lastModifiedDate': '2022-05-09T14:20:57.238Z', 'id': 25, 'titulo': '', 'convocatoriaId': 35, 'codigoExterno': '', 'codigoRegistroInterno': 'SGI_SLC2520220509', 'estado': {'createdBy': '00391433', 'creationDate': '2022-05-09T14:20:57.238Z', 'lastModifiedBy': '00391433', 'lastModifiedDate': '2022-05-09T14:20:57.238Z', 'id': 52, 'solicitudId': 25, 'estado': 'SOLICITADA', 'fechaEstado': '2022-05-09T14:20:42.496Z', 'comentario': ''}, 'creadorRef': '00391433', 'solicitanteRef': '48495234', 'observaciones': '', 'convocatoriaExterna': '', 'unidadGestionRef': '3', 'formularioSolicitud': 'PROYECTO', 'tipoSolicitudGrupo': None, 'activo': True}]
+            list_awards = self.get_valid_forms(forms=sgi.get_forms()) 
             self.update_log("Lista de concesiones: " + str(list_awards), True)
             list_persons_form = self.get_person_forms(list_awards, sgi)
             self.update_log("Lista de solicitantes: " + str(list_persons_form), True)
@@ -51,13 +51,16 @@ class ProcessExtractAward(ProcessCommand):
                     #Buscamos la solicitudes que hay.
                     if BDNS_NUM:
                         self.update_log("Empezamos con la convocatoria BDNS: "+ str(BDNS_NUM), True)
-                        param_info_pdf['paths'] = adapter_bdns.obtain_resources(BDNS_NUM) #devuelve un array["hercules-rpa/rpa_robot/files/525644_Convocatoria ayudas contratos predoctorales 2020","hercules-rpa/rpa_robot/files/525644_PRE2020_RC_ModificacionRC_CambiosCentros_Firmada","hercules-rpa/rpa_robot/files/525644_PRE2020_SegundaRC_Art20_3_abc_Firmada525644_PRE2020_TerceraRC_Art20_4_Firmada","hercules-rpa/rpa_robot/files/525644_resolucion ampliacion plazo concesion PRE2020","hercules-rpa/rpa_robot/files/525644_Resolucion_Concesion_PREDOC2020_firmada(2)"] 
+                        param_info_pdf['paths'] = adapter_bdns.obtain_resources_award(BDNS_NUM)
                         param_info_pdf['nif_universidad'] = self.nif_array(self.parameters['nif_universidad'])
-                        param_info_pdf['solicitudes'] = list_persons_form #{'PID2020-113723RB-C22':'ANTONIO FERNANDO SKARMETA GOMEZ', 'PID2019-105684RB-I00':'SAGER LA GANGA'} item['codigoExterno'] #devolverá un array de solicitudes ['PID-12312','PID-323559']
+                        param_info_pdf['solicitudes'] = list_persons_form 
                         param_info_pdf['keywords'] = self.parameters['keywords'] 
                         pExtractPdf = ProcessExtractInfoPDF(self.log.id_schedule, self.log.id, self.id_robot, "1", None, param_info_pdf)
                         pExtractPdf.add_data_listener(self)
                         pExtractPdf.execute()
+                        for f in param_info_pdf['paths']:
+                            if os.path.exists(f):
+                                os.remove(f)
                         if pExtractPdf.result:
                             self.update_log("Enviamos la información obtenida de la concesión "+ str(item['codigoRegistroInterno']), True)
                             
@@ -93,9 +96,12 @@ class ProcessExtractAward(ProcessCommand):
         """
         list_awards = []
         if forms:
-            for form in json.loads(forms):
-                if form['estado']['estado'] != "BORRADOR" and form['estado']['estado'] != "CONCEDIDA" and form['estado']['estado'] != "DENEGADA" and form['estado']['estado'] != "DESISTIDA" and form['estado']['estado'] != "EXCLUIDA":
-                    list_awards.append(form)
+            try:
+                for form in json.loads(forms):
+                    if form['estado'] and form['estado']['estado'] != "BORRADOR" and form['estado']['estado'] != "CONCEDIDA" and form['estado']['estado'] != "DENEGADA" and form['estado']['estado'] != "DESISTIDA" and form['estado']['estado'] != "EXCLUIDA":
+                        list_awards.append(form)
+            except Exception as e:
+                self.update_log("Error al extraer el json de los formularios válidos. " + str(e), True)
         return list_awards
 
     def get_person_forms(self, person_forms: str, sgi: SGI) -> list:
@@ -110,7 +116,10 @@ class ProcessExtractAward(ProcessCommand):
         if person_forms:
             for person_form in person_forms:
                 if person_form['codigoExterno'] != '':
-                    list_persons_form[person_form['codigoExterno']] = json.loads(sgi.get_person(person_form['solicitanteRef']))['apellidos']
+                    try:
+                        list_persons_form[person_form['codigoExterno']] = json.loads(sgi.get_person(person_form['solicitanteRef']))['apellidos']
+                    except Exception as e:
+                        self.update_log("Error al extraer el solicitante a través del SGI. " + str(e), True)
             return list_persons_form
         return list_persons_form
 
@@ -140,7 +149,7 @@ class ProcessExtractAward(ProcessCommand):
         #titulo_codificado = titulo.split(' ', 1)[1].encode("gb2312").decode('utf_8')
         bbdd_url = self.ip_api + ":" + self.port_api + "/api/orchestrator/register/convocatorias?_from=BDNS&id_sgi=" + str(id_sgi_convocatoria) + "&entidad_convocante=AGENCIA ESTATAL DE INVESTIGACIÓN"
         response = requests.get(bbdd_url)
-        if response.ok:
+        if response and response.status_code == 200:
             return int(json.loads(response.text)[0]['url'].split("/")[-1])    
         return 0
 

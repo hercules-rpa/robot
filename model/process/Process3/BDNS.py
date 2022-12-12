@@ -196,6 +196,40 @@ class BDNS:
             browser.close()
             return name_resources
 
+    def obtain_resources_bdns_award(self, num_bdns: int) -> list:
+        """
+        Método para obtener los recursos de una convocatoria para las concesiones.
+
+        :param num_bdns int: Número de la bdns.
+        :return list Lista con los paths de los recursos.
+        """
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch(headless=False)
+            context = browser.new_context()
+            page = context.new_page()
+            page.goto(
+                self.conf['bdns_url'] + "GE/es/convocatorias")
+            url = self.conf['bdns_url'] + "busqueda?type=getdocsconv&numcov=" + \
+                str(num_bdns)+"&_search=false&nd=" + \
+                str(round(time.time()/10))+"&rows=50&page=1&sidx=&sord=asc"
+            page.goto(url)
+            soup = BeautifulSoup(page.content(), 'html.parser')
+            JSON = json.loads(soup.find('pre').text)
+            name_resources = []
+            if JSON != None and JSON['rows']:
+                if not os.path.exists(DOWNLOAD_DIR):
+                    os.makedirs(DOWNLOAD_DIR)
+                for j in JSON['rows']:
+                    url = self.conf['bdns_url'] + "GE/es/convocatoria/" + \
+                        str(num_bdns) + "/document/" + str(j[0])
+                    response = requests.request("GET", url, verify=False)
+                    with open(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]), 'wb') as file:
+                        file.write(response.content)
+                    name_resources.append(DOWNLOAD_DIR + str(num_bdns) + '_' + str(j[3]))
+            context.close()
+            browser.close()
+            return name_resources
+
     def obtain_resources_bdns_file(self, JSON: json) -> list:
         """
         Método para obtener el nombre de los ficheros descargados.
