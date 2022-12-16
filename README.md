@@ -11,6 +11,10 @@ El robot se encuentra desligado de los procesos, por lo que puede ejecutar cualq
 ## Instalación
 
  - [Robot](#robot)
+ 
+## Requisitos
+
+Python versión 3.8
 
 ### Robot
 
@@ -39,5 +43,6 @@ El robot podría necesitar librerías adicionales para la ejecución de ciertos 
 ## Ejecución
 
 Una vez instalado todo para la ejecución del robot simplemente haremos:
+
 
 `python LaunchRobot.py orchestrator.json`
